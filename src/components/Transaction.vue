@@ -1,44 +1,53 @@
 <template lang="">
-  <div class="w-1/4 mt-10 ml-20">
-    <h1 class="text-center font-bold text-xl">Add Transaction</h1>
+  <div
+    class="w-1/2 flex flex-col items-center mt-10 ml-20 p-10 drop-shadow-xl rounded-2xl bg-white border border-5 border-yellow-600"
+  >
+    <h1 class="text-center text-xl">Add Transaction</h1>
     <form
       @submit.prevent="$emit('addTransaction', clientData)"
-      class="flex flex-col mt-10"
+      class="flex flex-col items-center"
     >
-      <label for="date" class="font-semibold mt-2">Select Date:</label>
-      <VueDatepickerUi lang="en" id="date" v-model="selectedDate" />
-      <p>Selected Date: {{ formattedDate }}</p>
-      <label for="transaction" class="font-semibold"
-        >Please Select Transaction</label
-      >
-      <select
-        v-model="clientData.transactionType"
-        id="transaction"
-        class="w-60 p-2"
-      >
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
-      </select>
-      <label for="transactionName" class="font-semibold mt-2"
-        >Transaction Name:</label
-      >
-      <input
-        v-model="clientData.transactionName"
-        id="transactionName"
-        placeholder="Transaction Name"
-        class="w-60 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600"
-      />
-      <label for="amount" class="font-semibold mt-2">Amount:</label>
-      <input
-        type="number"
-        v-model="clientData.amount"
-        id="amount"
-        placeholder="Amount"
-        class="w-60 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600"
-      />
+      <section class="flex flex-row items-center">
+        <section class="flex flex-col p-3">
+          <label for="date" class="mt-2">Select Date:</label>
+          <VueDatepickerUi
+            lang="en"
+            id="date"
+            v-model="selectedDate"
+            class="border border-1 border-black rounded-lg"
+          />
+
+          <label for="transaction">Please Select Transaction</label>
+          <select
+            v-model="clientData.transactionType"
+            id="transaction"
+            class="w-60 p-2 border border-1 border-black rounded-md drop-shadow-sm"
+          >
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </section>
+        <section class="flex flex-col p-3">
+          <label for="transactionName" class="mt-2">Transaction Name:</label>
+          <input
+            v-model="clientData.transactionName"
+            id="transactionName"
+            placeholder="Transaction Name"
+            class="w-60 p-2.5 border-black rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
+          />
+          <label for="amount" class="mt-2">Amount:</label>
+          <input
+            type="number"
+            v-model="clientData.amount"
+            id="amount"
+            placeholder="Amount"
+            class="w-60 border-black p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
+          />
+        </section>
+      </section>
       <button
         type="submit"
-        class="w-44 p-2 mt-2 bg-green-600 text-white drop-shadow-xl rounded-lg hover:font-semibold"
+        class="w-44 p-2 mt-2 bg-green-600 text-white drop-shadow-xl rounded-lg hover:"
       >
         Submit
       </button>
@@ -61,9 +70,9 @@ const formattedDate = computed(() => {
 
 const clientData = reactive({
   id: computed(() => state.transactionDatabase.length),
-  transactionName: "",
+  transactionName: "Product",
   date: formattedDate,
-  transactionType: "",
+  transactionType: "income",
   amount: 0,
 });
 </script>

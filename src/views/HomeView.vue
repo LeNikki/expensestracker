@@ -1,7 +1,7 @@
 <template lang="">
   <div class="pb-20">
     <IncomeExpenses :income="income" :expenses="expenses" />
-    <div class="w-full flex flex-row justify-around">
+    <div class="flex flex-col items-center justify-center">
       <Transaction @addTransaction="addTransaction" />
       <History
         :income="income"

@@ -2,7 +2,9 @@
   <div class="w-3/4 mt-10">
     <h1 class="text-center font-bold text-xl mb-10">Transaction History</h1>
 
-    <div class="flex flex-row justify-around">
+    <div
+      class="flex flex-row justify-around bg-white p-10 shadow shadow-2xl rounded-2xl"
+    >
       <section class="income-section">
         <h3 class="font-semibold">Income</h3>
         <table>
