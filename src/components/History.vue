@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="w-3/4 mt-10">
     <h1 class="text-center font-bold text-xl mb-10">Transaction History</h1>
 
@@ -56,11 +56,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watchEffect } from "vue";
-const props = defineProps({ income: Array, expenses: Array });
-const income = ref(props.income);
-const expenses = ref(props.expenses);
+import type { TransactionData } from "../assets/interfaces";
+const props = defineProps<{
+  income: TransactionData[];
+  expenses: TransactionData[];
+}>();
+const income = ref<TransactionData[]>(props.income);
+const expenses = ref<TransactionData[]>(props.expenses);
 watchEffect(() => {
   income.value = [...props.income];
   expenses.value = [...props.expenses];

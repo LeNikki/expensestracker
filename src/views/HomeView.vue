@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="pb-20">
     <IncomeExpenses :income="income" :expenses="expenses" />
     <div class="flex flex-col items-center justify-center">
@@ -11,17 +11,18 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, watchEffect } from "vue";
 import IncomeExpenses from "../components/IncomeExpenses.vue";
 import Transaction from "../components/Transaction.vue";
 import History from "../components/History.vue";
 import state from "../assets/database";
-const transactionList = ref(state.transactionDatabase);
+import type { TransactionData } from "../assets/interfaces";
+const transactionList = ref<TransactionData[]>(state.transactionDatabase);
 const income = ref([]);
 const expenses = ref([]);
 
-const addTransaction = (clientData) => {
+const addTransaction = (clientData: TransactionData) => {
   state.transactionDatabase.push({
     id: clientData.id,
     transactionName: clientData.transactionName,
@@ -32,23 +33,19 @@ const addTransaction = (clientData) => {
   transactionList.value = [...state.transactionDatabase];
   console.log("Item Id added: ", clientData.id);
 };
-const deleteTransaction = (itemID) => {
+const deleteTransaction = (itemID: number) => {
   const index = state.transactionDatabase.findIndex(
-    (item) => item.id === itemID
+    (item: TransactionData) => item.id === itemID
   );
   state.transactionDatabase.splice(index, 1);
   transactionList.value = [...state.transactionDatabase];
-  //console.log("Index to be deleted: ", index);
-  // if (index !== -1) {
-  //   state.transactionDatabase.splice(index, 1);
-  // }
 };
 watchEffect(() => {
   income.value = [];
   expenses.value = [];
 
-  transactionList.value.forEach((item) => {
-    const list =
+  transactionList.value.forEach((item: TransactionData) => {
+    const list: TransactionData[] =
       item.transactionType == "income" ? income.value : expenses.value;
     list.push(item);
   });

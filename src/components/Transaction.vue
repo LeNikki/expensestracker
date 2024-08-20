@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div
     class="w-1/2 flex flex-col items-center mt-10 ml-20 p-10 drop-shadow-xl rounded-2xl bg-white border border-5 border-yellow-600"
   >
@@ -55,16 +55,21 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, computed } from "vue";
+import type { TransactionData } from "../assets/interfaces";
 import "vue-datepicker-ui/lib/vuedatepickerui.css";
 import VueDatepickerUi from "vue-datepicker-ui";
 import state from "../assets/database";
-const selectedDate = ref(new Date());
+const selectedDate = ref<Date>(new Date());
 
-const formattedDate = computed(() => {
+const formattedDate = computed<string>(() => {
   const date = selectedDate.value;
-  const options = { year: "numeric", month: "short", day: "2-digit" };
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  };
   return date.toLocaleDateString("en-US", options);
 });
 

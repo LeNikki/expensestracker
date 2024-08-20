@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div>
     <h1 class="text-center text-xl">Transaction Summary</h1>
     <div class="w-full flex flex-row justify-around mt-10">
@@ -26,17 +26,23 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, watchEffect } from "vue";
-
-const props = defineProps({ income: Array, expenses: Array });
-const totalIncome = ref(0);
-const totalExpenses = ref(0);
-const balance = ref(0);
+import type { TransactionData } from "../assets/interfaces";
+const props = defineProps<{
+  income: TransactionData[];
+  expenses: TransactionData[];
+}>();
+const totalIncome = ref<number>(0);
+const totalExpenses = ref<number>(0);
+const balance = ref<number>(0);
 watchEffect(() => {
-  totalIncome.value = props.income.reduce((acc, item) => acc + item.amount, 0);
+  totalIncome.value = props.income.reduce(
+    (acc: number, item: TransactionData) => acc + item.amount,
+    0
+  );
   totalExpenses.value = props.expenses.reduce(
-    (acc, item) => acc + item.amount,
+    (acc: number, item: { amount: number }) => acc + item.amount,
     0
   );
   balance.value = totalIncome.value - totalExpenses.value;
@@ -45,4 +51,3 @@ watchEffect(() => {
   console.log("Balance: ", balance.value);
 });
 </script>
-<style lang=""></style>
