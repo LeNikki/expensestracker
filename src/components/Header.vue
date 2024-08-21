@@ -11,12 +11,3 @@
 import expensesmain_logo from "../assets/expensesmain_logo.png";
 </script>
 
-<!-- Welcome user -->
-<!-- <section class="flex justify-between w-56 items-center mt-10 ml-10">
-  <div
-    class="w-16 h-16 p-2 border border-10 bg-white drop-shadow-xl rounded-full flex justify-center items-center"
-  >
-    pic
-  </div>
-  <p class="font-bold">Welcome User!</p>
-</section> -->
