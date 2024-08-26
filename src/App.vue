@@ -7,7 +7,9 @@ import { RouterLink, RouterView } from "vue-router";
   <div class="p-0 m-0 bg-gradient-to-b from-slate-100 via-blue-300 to-blue-500">
     <Header />
     <RouterView />
-    <p class="text-center text-sm pb-10 text-white font-semibold">
+    <p
+      class="text-center text-sm pb-10 text-white font-semibold md:pl-0 md:pr-0 pl-10 pr-10"
+    >
       Copyright@2024 Designed and Coded by Nicole P. Satiembre
     </p>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-1/2 flex flex-col items-center mt-10 ml-20 p-10 drop-shadow-lg rounded-2xl bg-white"
+    class="w-4/5 md:w-1/2 flex flex-col items-center mt-10 p-10 drop-shadow-lg rounded-2xl bg-white"
   >
     <h1 class="text-center font-semibold text-blue-600">Add Transaction</h1>
     <form
@@ -10,18 +10,20 @@
       <section class="flex flex-row items-center flex-wrap justify-center">
         <section class="flex flex-col p-3">
           <label for="date" class="mt-2">Select Date:</label>
-          <VueDatepickerUi
-            lang="en"
-            id="date"
-            v-model="selectedDate"
-            class="border border-1 border-blue-600 rounded-lg"
-          />
+          <section class="">
+            <VueDatepickerUi
+              lang="en"
+              id="date"
+              v-model="selectedDate"
+              class="border border-1 border-blue-600 rounded-lg"
+            />
+          </section>
 
           <label for="transaction">Please Select Transaction</label>
           <select
             v-model="clientData.transactionType"
             id="transaction"
-            class="w-60 p-2 border border-1 border-blue-600 rounded-md drop-shadow-sm"
+            class="w-66 p-2 border border-1 border-blue-600 rounded-md drop-shadow-sm"
           >
             <option value="income">Income</option>
             <option value="expense">Expense</option>
@@ -33,7 +35,7 @@
             v-model="clientData.transactionName"
             id="transactionName"
             placeholder="Transaction Name"
-            class="w-60 p-2.5 border-blue-600 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
+            class="w-64 p-2.5 border-blue-600 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
           />
           <label for="amount" class="mt-2">Amount:</label>
           <input
@@ -41,7 +43,7 @@
             v-model="clientData.amount"
             id="amount"
             placeholder="Amount"
-            class="w-60 border-blue-600 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
+            class="w-64 border-blue-600 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
           />
         </section>
       </section>
