@@ -1,12 +1,14 @@
 <template>
-  <div class="w-full md:w-3/4 mt-10 bg-white p-10 shadow shadow-lg rounded-2xl">
+  <div
+    class="w-full md:w-3/4 mt-10 bg-white p-2 md:p-10 shadow shadow-lg rounded-2xl"
+  >
     <h1 class="text-center mb-10 text-blue-600 font-semibold">
       Transaction History for month: {{ transactionMonth }}
     </h1>
 
     <div class="flex flex-row flex-wrap justify-around">
       <section>
-        <h3 class="text-green-600 font-semibold">Income</h3>
+        <h3 class="text-green-600 font-semibold mb-2">Income</h3>
         <section class="income-section">
           <table>
             <tr>
@@ -32,7 +34,7 @@
       </section>
 
       <section>
-        <h3 class="mt-10 md:mt-0 text-red-600 font-semibold">Expenses</h3>
+        <h3 class="mt-10 md:mt-0 text-red-600 font-semibold mb-2">Expenses</h3>
         <section class="expenses-section">
           <table>
             <tr>

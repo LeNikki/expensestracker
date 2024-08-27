@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-4/5 md:w-1/2 flex flex-col items-center mt-10 p-10 drop-shadow-lg rounded-2xl bg-white"
+    class="w-4/5 md:w-1/2 flex flex-col items-center mt-10 p-5 md:p-10 drop-shadow-lg rounded-2xl bg-white"
   >
     <h1 class="text-center font-semibold text-blue-600">Add Transaction</h1>
     <form
