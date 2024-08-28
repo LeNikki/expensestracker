@@ -39,10 +39,11 @@
           />
           <label for="amount" class="mt-2">Amount:</label>
           <input
-            type="number"
-            v-model="clientData.amount"
+            type="text"
+            v-model.number="clientData.amount"
             id="amount"
             placeholder="Amount"
+            :maxlength="6"
             class="w-64 border-blue-600 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 border border-1"
           />
         </section>
